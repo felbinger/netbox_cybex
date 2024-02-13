@@ -6,5 +6,6 @@ class NetBoxCredentialsConfig(PluginConfig):
     description = 'Manage credentials in NetBox'
     version = '0.1'
     base_url = 'credentials'
+    min_version = '3.4.0'
 
-config = NetBoxAccessListsConfig
+config = NetBoxCredentialsConfig

@@ -31,7 +31,7 @@ class Credential(NetBoxModel):
         return self.username
 
     def get_absolute_url(self):
-        return reverse('plugins:netbox_credentials:credential', args=[self.pk])
+        return reverse('plugins:netbox_cybex:credential', args=[self.pk])
 
     @property
     def parent(self):
@@ -42,6 +42,6 @@ class Credential(NetBoxModel):
 
         # A Service must belong to a Device *or* to a VirtualMachine
         if self.device and self.virtual_machine:
-            raise ValidationError(_("A service cannot be associated with both a device and a virtual machine."))
+            raise ValidationError(_("A credential cannot be associated with both a device and a virtual machine."))
         if not self.device and not self.virtual_machine:
-            raise ValidationError(_("A service must be associated with either a device or a virtual machine."))
+            raise ValidationError(_("A credential must be associated with either a device or a virtual machine."))

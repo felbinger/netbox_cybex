@@ -7,6 +7,7 @@ from netbox.filtersets import ChangeLoggedModelFilterSet, OrganizationalModelFil
 from virtualization.models import VirtualMachine, VMInterface
 from .models import *
 
+
 class CredentialFilterSet(NetBoxModelFilterSet):
     device_id = django_filters.ModelMultipleChoiceFilter(
         queryset=Device.objects.all(),

@@ -4,7 +4,7 @@ from . import filtersets, forms, models, tables
 
 class CredentialView(generic.ObjectView):
     queryset = models.Credential.objects.all()
-    template_name = 'netbox_credentials/credential.html'
+    template_name = 'netbox_cybex/credential.html'
 
 
 class CredentialListView(generic.ObjectListView):
@@ -17,7 +17,7 @@ class CredentialListView(generic.ObjectListView):
 class CredentialEditView(generic.ObjectEditView):
     queryset = models.Credential.objects.all()
     form = forms.CredentialForm
-    template_name = 'netbox_credentials/credential_edit.html'
+    template_name = 'netbox_cybex/credential_edit.html'
 
 class CredentialDeleteView(generic.ObjectDeleteView):
     queryset = models.Credential.objects.all()

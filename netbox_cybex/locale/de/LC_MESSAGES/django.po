@@ -1,0 +1,217 @@
+# German translations for NetBox CybEx plugin.
+# Copyright (C) 2024
+# This file is distributed under the same license as the netbox package.
+# Nico Felbinger <nico@felbinger.eu>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-14 15:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: netbox_cybex/filtersets.py:14
+msgid "Device (ID)"
+msgstr ""
+
+#: netbox_cybex/filtersets.py:20
+msgid "Device (name)"
+msgstr ""
+
+#: netbox_cybex/filtersets.py:24
+msgid "Virtual machine (ID)"
+msgstr ""
+
+#: netbox_cybex/filtersets.py:30
+msgid "Virtual machine (name)"
+msgstr ""
+
+#: netbox_cybex/forms.py:14
+msgid "Assignment"
+msgstr ""
+
+#: netbox_cybex/forms.py:19 netbox_cybex/forms.py:34 netbox_cybex/forms.py:50
+#: netbox_cybex/templates/netbox_cybex/credential_edit.html:19
+#: netbox_cybex/templates/virtualization/virtualmachine.html:132
+msgid "Device"
+msgstr ""
+
+#: netbox_cybex/forms.py:24
+#: netbox_cybex/templates/netbox_cybex/credential_edit.html:24
+#: netbox_cybex/templates/virtualization/virtualmachine.html:13
+msgid "Virtual Machine"
+msgstr ""
+
+#: netbox_cybex/forms.py:40 netbox_cybex/forms.py:57
+msgid "Virtual machine"
+msgstr ""
+
+#: netbox_cybex/forms.py:54
+msgid "Required if not assigned to a VM"
+msgstr ""
+
+#: netbox_cybex/forms.py:61
+msgid "Required if not assigned to a device"
+msgstr ""
+
+#: netbox_cybex/models.py:13
+msgid "device"
+msgstr ""
+
+#: netbox_cybex/models.py:45
+msgid ""
+"A credential cannot be associated with both a device and a virtual machine."
+msgstr ""
+
+#: netbox_cybex/models.py:47
+msgid ""
+"A credential must be associated with either a device or a virtual machine."
+msgstr ""
+
+#: netbox_cybex/navigation.py:9
+msgid "Add"
+msgstr ""
+
+#: netbox_cybex/navigation.py:15
+msgid "Import"
+msgstr ""
+
+#: netbox_cybex/navigation.py:24
+#: netbox_cybex/templates/netbox_cybex/credential.html:17
+#: netbox_cybex/templates/virtualization/virtualmachine.html:88
+msgid "Credentials"
+msgstr ""
+
+#: netbox_cybex/tables.py:16
+#: netbox_cybex/templates/netbox_cybex/credential.html:21
+msgid "Service Type"
+msgstr ""
+
+#: netbox_cybex/tables.py:21
+#: netbox_cybex/templates/netbox_cybex/credential.html:25
+msgid "Parent"
+msgstr ""
+
+#: netbox_cybex/templates/netbox_cybex/credential.html:29
+msgid "Username"
+msgstr ""
+
+#: netbox_cybex/templates/netbox_cybex/credential.html:33
+msgid "Password"
+msgstr ""
+
+#: netbox_cybex/templates/netbox_cybex/credential_edit.html:8
+msgid "Credential"
+msgstr ""
+
+#: netbox_cybex/templates/netbox_cybex/credential_edit.html:50
+msgid "Custom Fields"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:18
+msgid "Name"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:22
+msgid "Status"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:26
+msgid "Role"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:30
+msgid "Platform"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:34
+msgid "Description"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:38
+msgid "Tenant"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:47
+msgid "Config Template"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:51
+msgid "Primary IPv4"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:56
+#: netbox_cybex/templates/virtualization/virtualmachine.html:72
+msgid "NAT for"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:58
+#: netbox_cybex/templates/virtualization/virtualmachine.html:74
+msgid "NAT"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:67
+msgid "Primary IPv6"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:94
+msgid "Add Credential"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:109
+#: netbox_cybex/templates/virtualization/virtualmachine.html:119
+msgid "Cluster"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:113
+msgid "Site"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:128
+msgid "Cluster Type"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:141
+msgid "Resources"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:145
+msgid "Virtual CPUs"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:149
+msgid "Memory"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:160
+msgid "Disk Space"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:164
+msgctxt "Abbreviation for gigabyte"
+msgid "GB"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:174
+msgid "Services"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:182
+msgid "Add a service"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:194
+msgid "Virtual Disks"
+msgstr ""
+
+#: netbox_cybex/templates/virtualization/virtualmachine.html:202
+msgid "Add Virtual Disk"
+msgstr ""

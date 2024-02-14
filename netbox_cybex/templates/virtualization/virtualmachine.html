@@ -87,10 +87,10 @@
     <div class="card">
       <h5 class="card-header">{% trans "Credentials" %}</h5>
       <div class="card-body htmx-container table-responsive"
-        hx-get="{% url 'plugins:netbox_credentials:credential_list' %}?virtual_machine_id={{ object.pk }}"
+        hx-get="{% url 'plugins:netbox_cybex:credential_list' %}?virtual_machine_id={{ object.pk }}"
         hx-trigger="load"></div>
       <div class="card-footer text-end noprint">
-        <a href="{% url 'plugins:netbox_credentials:credential_add' %}?device={{ object.device.pk }}&virtual_machine={{ object.pk }}&return_url={{ object.get_absolute_url }}" class="btn btn-sm btn-primary">
+        <a href="{% url 'plugins:netbox_cybex:credential_add' %}?device={{ object.device.pk }}&virtual_machine={{ object.pk }}&return_url={{ object.get_absolute_url }}" class="btn btn-sm btn-primary">
           <span class="mdi mdi-plus-thick" aria-hidden="true"></span> {% trans "Add Credential" %}
         </a>
       </div>

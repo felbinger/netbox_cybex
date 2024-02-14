@@ -1,9 +1,9 @@
 from netbox.api.routers import NetBoxRouter
 from . import views
 
-app_name = 'netbox_credentials'
+app_name = 'netbox_cybex'
 
 router = NetBoxRouter()
-router.register('credentials', views.CredentialViewSet)
+router.register('credential', views.CredentialViewSet)
 
 urlpatterns = router.urls

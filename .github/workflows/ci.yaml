@@ -108,7 +108,7 @@ jobs:
       - name: Install Twine
         run: pip install twine
 
-      - run: ls -la
+      - run: ls -la dist
 
       - name: Upload package to PyPi
-        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} --repository pypi dist/*
+        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} -r pypi dist

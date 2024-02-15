@@ -13,6 +13,47 @@ plugin (e.g., the credentials section) in a non-training environment!
 
 ![](./img/credential_inline_device.png)
 
+## Deployment
+### Docker
+### NixOS
+A default netbox deployment for NixOS can be found on 
+[github:secshellnet/nixos](https://github.com/secshellnet/nixos/blob/main/modules/netbox.nix), 
+you can add plugins like this:
+```
+{ lib
+, ...
+}: let
+  netbox_cybex = ps: ps.buildPythonPackage rec {
+    pname = "netbox_cybex";
+    version = "0.1";
+    format = "pyproject";
+
+    src = ps.fetchPypi {
+      inherit pname version;
+      hash = "sha256-YfC5aOHQQqjTCv2mac+p/1zX/8M+TemYyoim9YSXJPs=";
+    };
+
+    nativeBuildInputs = with ps; [
+      setuptools
+    ];
+
+    meta = with lib; {
+      description = "Features for cyber exercises in NetBox";
+      homepage = "https://github.com/felbinger/netbox_cybex";
+      license = licenses.mpl20;
+      platforms = platforms.linux;
+    };
+  };
+in {
+
+  # Your NetBox configuration
+  # ...
+
+  services.netbox.plugins = (ps: [ (netbox_cybex ps) ]);
+  services.netbox.settings.PLUGINS = [ "netbox_cybex" ];
+}
+```
+
 ## Development Environment
 ```sh
 git clone --branch v3.7.2 --single-branch https://github.com/netbox-community/netbox ~/netbox
@@ -64,6 +105,5 @@ python3 -m twine upload --repository pypi dist/*
     - need to be easily manageable using importable data, otherwise gui needs to be used, which sucks... (same with pfSense)
 - Test API (Make sure it's working as expected)
 - Create ansible module `cybex.netbox.netbox_credential` to add creds to existing virtual machine
-- Add GitHub Action Workflow for pip publish (on release)
 - Package for nix
 

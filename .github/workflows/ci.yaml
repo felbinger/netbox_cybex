@@ -60,7 +60,7 @@ jobs:
         run: |
           if [[ $GITHUB_REF = refs/tags/v* ]]; then
             tag=${GITHUB_REF#refs/tags/v}
-            version=$(grep '^version =' setup.py | cut -d \' -f2)
+            version=$(grep 'version=' setup.py | cut -d \' -f2)
             if [[ "$tag" != "$version" ]]; then
               echo "::error::Tag $tag does not match version $version"
               exit 1
@@ -97,7 +97,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ lint, build ]
     if: ${{ startsWith(github.ref, 'refs/tags/v') }}
-    environment: pypi
 
     steps:
       - name: Download dist
@@ -110,4 +109,4 @@ jobs:
         run: pip install twine
 
       - name: Upload package to PyPi
-        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} dist/*
+        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} -r pypi dist/*

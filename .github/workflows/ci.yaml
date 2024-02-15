@@ -111,4 +111,4 @@ jobs:
       - run: ls -la dist
 
       - name: Upload package to PyPi
-        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} -r pypi dist
+        run: python -m twine upload -u __token__ -p ${{ secrets.PYPI_TOKEN }} -r pypi dist dist/*

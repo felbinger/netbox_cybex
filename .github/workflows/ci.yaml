@@ -60,7 +60,7 @@ jobs:
         run: |
           if [[ $GITHUB_REF = refs/tags/v* ]]; then
             tag=${GITHUB_REF#refs/tags/v}
-            version=$(grep '^version =' setup.py | cut -d \' -f2)
+            version=$(grep 'version=' setup.py | cut -d \' -f2)
             if [[ "$tag" != "$version" ]]; then
               echo "::error::Tag $tag does not match version $version"
               exit 1

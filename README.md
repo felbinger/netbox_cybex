@@ -15,6 +15,50 @@ plugin (e.g., the credentials section) in a non-training environment!
 
 ## Deployment
 ### Docker
+- see: https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins:
+```Dockerfile
+# Dockerfile-Plugins
+FROM netboxcommunity/netbox:latest
+
+COPY ./plugin_requirements.txt /opt/netbox/
+RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/plugin_requirements.txt
+
+# These lines are only required if your plugin has its own static files.
+COPY configuration/configuration.py /etc/netbox/config/configuration.py
+COPY configuration/plugins.py /etc/netbox/config/plugins.py
+RUN SECRET_KEY="dummydummydummydummydummydummydummydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
+```
+- override mountpoint for templates:
+```yaml
+# docker-compose.override.yml
+version: '3.4'
+
+services:
+  netbox:
+    image: netbox:latest-plugins
+    ports:
+      - 8000:8080
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+    volumes:
+      - "./netbox_cybex/netbox_cybex/templates/dcim/device.html:/opt/netbox/netbox/templates/dcim/device.html"
+      - "./netbox_cybex/netbox_cybex/templates/virtualization/virtualmachine.html:/opt/netbox/netbox/templates/virtualization/virtualmachine.html"
+      - "./netbox_cybex/netbox_cybex/templates/netbox_cyber:/opt/netbox/netbox/templates/netbox_cyber/"
+
+  netbox-worker:
+    image: netbox:latest-plugins
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+
+  netbox-housekeeping:
+    image: netbox:latest-plugins
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+```
+
 ### NixOS
 A default netbox deployment for NixOS can be found on 
 [github:secshellnet/nixos](https://github.com/secshellnet/nixos/blob/main/modules/netbox.nix), 
